@@ -1,0 +1,189 @@
+/* specialties.css */
+.specialty-section {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .specialty-section.preview {
+    padding-bottom: 0;
+  }
+  
+  .hernia-section {
+    background-color: var(--background-color);
+  }
+  
+  .varices-section {
+    background-color: var(--card-bg-color);
+  }
+  
+  .specialty-content {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+    align-items: center;
+  }
+  
+  .specialty-content.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .specialty-text {
+    flex: 1;
+  }
+  
+  .specialty-text h3 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+  }
+  
+  .benefits-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .benefit-icon {
+    color: var(--primary-color);
+    margin-right: var(--spacing-sm);
+  }
+  
+  .specialty-image-container {
+    flex: 1;
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-lg);
+  }
+  
+  .specialty-detailed-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .specialty-image-container:hover .specialty-detailed-image {
+    transform: scale(1.05);
+  }
+  
+  .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: var(--spacing-lg);
+    color: var(--light-text);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .specialty-image-container:hover .image-overlay {
+    transform: translateY(0);
+  }
+  
+  .overlay-content h3 {
+    font-size: 1.2rem;
+    color: var(--light-text);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .overlay-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .overlay-content li {
+    margin-bottom: 5px;
+  }
+  
+  .treatment-options {
+    margin-top: var(--spacing-xl);
+  }
+  
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+  
+  .option-card {
+    background-color: var(--card-bg-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-sm);
+    transition: transform 0.3s ease;
+  }
+  
+  .option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+  }
+  
+  .option-card h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .faq-section {
+    margin-top: var(--spacing-xl);
+  }
+  
+  .faq-list {
+    margin-top: var(--spacing-md);
+  }
+  
+  .faq-item {
+    background-color: var(--card-bg-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-sm);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .faq-item h4 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .faq-item p {
+    margin-bottom: 0;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 992px) {
+    .specialty-content, 
+    .specialty-content.reverse {
+      flex-direction: column;
+    }
+    
+    .specialty-text,
+    .specialty-image-container {
+      width: 100%;
+    }
+    
+    .specialty-image-container {
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .options-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .specialty-detailed-image {
+      height: 300px;
+    }
+    
+    .option-card, 
+    .faq-item {
+      padding: var(--spacing-md);
+    }
+  }

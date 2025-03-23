@@ -1,0 +1,36 @@
+:root {
+    /* Paleta de colores médicos profesional */
+    --primary-color: #2c7abc; /* Azul médico principal */
+    --secondary-color: #0f4c81; /* Azul oscuro para acentos */
+    --accent-color: #4eaed9; /* Azul claro para elementos de acento */
+    --text-color: #333333; /* Color texto oscuro para buena legibilidad */
+    --light-text: #ffffff; /* Texto claro para fondos oscuros */
+    --background-color: #f5f9fc; /* Fondo muy claro con tono azulado */
+    --card-bg-color: #ffffff; /* Fondo blanco para tarjetas */
+    --footer-color: #0a2e4f; /* Color oscuro para el footer */
+    --border-color: #e0e6ec; /* Color suave para bordes */
+    --success-color: #4caf50; /* Verde para mensajes de éxito */
+    --error-color: #d32f2f; /* Rojo para errores o alertas */
+    
+    /* Tipografía */
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --heading-font-weight: 600;
+    --body-font-weight: 400;
+    
+    /* Espaciado */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Bordes */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    
+    /* Sombras */
+    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }

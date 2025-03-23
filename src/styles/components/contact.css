@@ -1,0 +1,191 @@
+/* contact.css */
+.contact-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--background-color);
+  }
+  
+  .contact-content {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+  }
+  
+  .contact-info {
+    flex: 1;
+  }
+  
+  .contact-info h3 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .contact-details {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+  
+  .contact-icon {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  
+  .contact-text {
+    flex-grow: 1;
+  }
+  
+  .contact-text h4 {
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+  }
+  
+  .contact-text p {
+    margin-bottom: 0;
+    color: var(--text-color);
+  }
+  
+  .appointment-cta {
+    margin-top: var(--spacing-xl);
+    background-color: var(--card-bg-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-sm);
+  }
+  
+  .whatsapp-btn {
+    background-color: #25D366;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    color: var(--light-text);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: var(--spacing-md);
+  }
+  
+  .whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+  }
+  
+  .btn-icon {
+    margin-right: var(--spacing-sm);
+    font-size: 1.2rem;
+  }
+  
+  .contact-map {
+    flex: 1;
+  }
+  
+  .contact-map h3 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .map-container {
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-md);
+    overflow: hidden;
+  }
+  
+  .map-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 1.2rem;
+  }
+  
+  .map-placeholder small {
+    font-size: 0.9rem;
+    margin-top: var(--spacing-xs);
+    color: #666;
+  }
+  
+  .location-info {
+    padding: var(--spacing-md);
+  }
+  
+  .location-info h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+  }
+  
+  .location-info p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+  }
+  
+  .directions-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-top: var(--spacing-xs);
+    transition: color 0.3s ease;
+  }
+  
+  .directions-link:hover {
+    color: var(--secondary-color);
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 992px) {
+    .contact-content {
+      flex-direction: column;
+    }
+    
+    .contact-map {
+      margin-top: var(--spacing-xl);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .contact-item {
+      align-items: center;
+    }
+    
+    .map-placeholder {
+      height: 250px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .contact-icon {
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+    }
+    
+    .appointment-cta {
+      padding: var(--spacing-md);
+    }
+    
+    .whatsapp-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
