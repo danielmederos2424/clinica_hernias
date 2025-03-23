@@ -1,0 +1,465 @@
+/* mobile-enhancements.css - Combined version with all fixes */
+
+/* ======= Global Mobile Padding Enhancements ======= */
+@media (max-width: 768px) {
+    /* Add more padding to all sections for breathing room */
+    section {
+      padding: var(--spacing-lg) var(--spacing-md) !important;
+    }
+    
+    /* Consistent padding in all containers for better spacing */
+    .container {
+      padding: 0 var(--spacing-md) !important;
+    }
+    
+    /* Enhance card elements with better padding - No padding for images */
+    .card, 
+    .testimonial-card,
+    .value-card,
+    .faq-item,
+    .option-card,
+    .credential {
+      padding: var(--spacing-md) !important;
+      margin-bottom: var(--spacing-md) !important;
+    }
+    
+    /* HERO SECTION FIX - Fix layout of feature cards based on screenshot */
+    .hero-features {
+      margin-top: 2rem !important;
+      padding: 0 !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    /* Create proper white card appearance for each feature */
+    .hero-features .feature-card {
+      background-color: #ffffff !important;  /* White background */
+      border-radius: var(--border-radius-md) !important;
+      padding: var(--spacing-md) !important; /* Add padding back */
+      margin-bottom: var(--spacing-md) !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      box-shadow: var(--box-shadow-sm) !important;
+    }
+    
+    /* Style the feature icon properly */
+    .feature-icon {
+      background-color: var(--primary-color) !important;
+      margin-right: var(--spacing-md) !important;
+      margin-top: 0 !important;
+    }
+    
+    /* Fix feature content spacing */
+    .feature-content {
+      flex: 1 !important;
+      padding: 0 !important;
+    }
+    
+    .feature-content h3 {
+      margin-top: 0 !important;
+      margin-bottom: var(--spacing-xs) !important;
+    }
+    
+    .feature-content p {
+      margin-bottom: 0 !important;
+    }
+    
+    /* Stack feature cards better on mobile */
+    .features-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 0 !important;
+      gap: var(--spacing-md) !important;
+    }
+    
+    /* CARD IMAGES FIX - Remove all padding from image containers as requested */
+    .service-image-container,
+    .specialty-image-container,
+    .hero-image-container,
+    .testimonial-card .author-image,
+    .about-image-container,
+    .service-card .service-image-container,
+    .specialty-card .specialty-image,
+    .card img {
+      padding: 0 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+    
+    /* Fix for service cards */
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+    
+    .service-card .service-content {
+      padding: var(--spacing-md);
+    }
+    
+    /* Fix for specialty cards */
+    .specialty-card {
+      padding: 0 !important;
+      overflow: hidden;
+    }
+    
+    .specialty-card h3,
+    .specialty-card p,
+    .specialty-card .btn-outline {
+      padding-left: var(--spacing-md) !important;
+      padding-right: var(--spacing-md) !important;
+    }
+    
+    /* Ensure images take full width without padding */
+    .specialty-image,
+    .service-image,
+    .hero-image,
+    .specialty-detailed-image,
+    .about-image {
+      width: 100% !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+    
+    /* Fix spacing in hero section */
+    .hero-container {
+      min-height: auto !important;
+      padding-bottom: var(--spacing-xl) !important;
+    }
+    
+    /* TESTIMONIAL NAVIGATION - Replace circles with arrows */
+    .testimonials-container {
+      position: relative !important;
+      padding: 0 40px !important; /* Make room for nav buttons */
+    }
+    
+    /* Style arrow navigation buttons */
+    .testimonial-nav {
+      position: absolute !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      background-color: transparent !important; /* Remove background */
+      color: var(--primary-color) !important; /* Use primary color for arrows */
+      width: auto !important; /* Auto width */
+      height: auto !important; /* Auto height */
+      border-radius: 0 !important; /* Remove border radius */
+      font-size: 1.5rem !important; /* Larger font size */
+      box-shadow: none !important; /* Remove shadow */
+    }
+    
+    /* Position the arrows */
+    .testimonial-nav.prev {
+      left: 0 !important;
+    }
+    
+    .testimonial-nav.next {
+      right: 0 !important;
+    }
+    
+    /* Replace icons with text arrows */
+    .testimonial-nav.prev svg,
+    .testimonial-nav.next svg {
+      display: none !important;
+    }
+    
+    .testimonial-nav.prev::after {
+      content: "<" !important;
+      font-weight: bold !important;
+    }
+    
+    .testimonial-nav.next::after {
+      content: ">" !important;
+      font-weight: bold !important;
+    }
+    
+    /* Hover effects */
+    .testimonial-nav:hover {
+      background-color: transparent !important;
+      color: var(--secondary-color) !important;
+      transform: translateY(-50%) scale(1.2) !important;
+    }
+    
+    /* Fix for testimonial cards author images */
+    .testimonial-author .author-image {
+      width: 50px !important;
+      height: 50px !important;
+      min-width: 50px !important;
+      margin-right: var(--spacing-md) !important;
+    }
+    
+    /* FOOTER - Align WebGraphix text to left */
+    .footer-bottom {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      text-align: left !important;
+    }
+    
+    .legal-links {
+      text-align: left !important;
+      margin-top: var(--spacing-sm) !important;
+    }
+    
+    .footer-bottom .legal-links {
+        display: flex !important; /* Change back to flex */
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 0 !important; /* Remove any gap */
+      }
+      
+    .footer-bottom .spam {
+        font-size: 0.8rem !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    
+      .footer-bottom .legal-links a {
+        font-size: 0.8rem !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-left: 5px !important;
+      }
+      
+      /* Fix the actual HTML whitespace issue */
+      .footer-bottom .spam::after {
+        content: none !important;
+      }
+
+    /* Improve button spacing and touchability */
+    .btn, .btn-outline, .hero-cta, .service-link, .read-more-link {
+      padding: var(--spacing-sm) var(--spacing-md) !important;
+      min-height: 44px !important; /* Better for touchability */
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    
+    /* Better spacing in forms and input fields */
+    input, textarea, select {
+      padding: var(--spacing-sm) !important;
+      margin-bottom: var(--spacing-md) !important;
+    }
+    
+    /* Enhance navbar for better spacing on mobile */
+    .navbar-container {
+      padding: 0 var(--spacing-md) !important;
+    }
+    
+    /* Better spacing in footer */
+    .footer-content {
+      padding: 0 var(--spacing-md) !important;
+    }
+    
+    /* Enhanced WhatsApp button positioning */
+    .whatsapp-button {
+      bottom: 25px !important;
+      right: 25px !important;
+    }
+  }
+  
+  /* Even more padding adjustments for very small screens */
+  @media (max-width: 576px) {
+    section {
+      padding: var(--spacing-md) var(--spacing-sm) !important;
+    }
+    
+    .container {
+      padding: 0 var(--spacing-sm) !important;
+    }
+    
+    /* Smaller content needs even more space to breathe */
+    p, li, .dropdown-link, .nav-link {
+      margin-bottom: var(--spacing-sm) !important;
+      line-height: 1.7 !important;
+    }
+    
+    /* Improved spacing for hero section */
+    .hero-content {
+      padding: var(--spacing-md) !important;
+    }
+    
+    /* Make images smaller on very small screens to improve performance */
+    .specialty-image {
+      height: 200px !important;
+      object-fit: cover !important;
+    }
+    
+    /* Adjust padding in content areas */
+    .specialty-content-wrapper,
+    .service-card .service-content {
+      padding: var(--spacing-sm) !important;
+    }
+    
+    /* Make feature icons more compact */
+    .feature-icon {
+      width: 36px !important;
+      height: 36px !important;
+      min-width: 36px !important;
+      font-size: 0.9rem !important;
+    }
+    
+    /* Keep proper feature card appearance */
+    .hero-features .feature-card {
+      padding: var(--spacing-sm) !important;
+    }
+    
+    /* Make testimonial navigation more compact */
+    .testimonials-container {
+      padding: 0 30px !important;
+    }
+    
+    .testimonial-nav {
+      font-size: 1.2rem !important;
+    }
+  }
+  
+  /* ======= Simple Page Animation (React 19 compatible) ======= */
+  .page-animation-enter {
+    animation: fadeIn 0.4s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Smooth scroll behavior for all anchor links */
+  html {
+    scroll-behavior: smooth !important;
+  }
+  
+  /* Smooth section transitions within page */
+  .section {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .section.animate-in {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ======= Testimonials Enhanced Animations ======= */
+  
+  /* Improved animations for testimonial cards */
+  .testimonial-card {
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s ease !important;
+  }
+  
+  /* Enhanced hover effect */
+  .testimonial-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: var(--box-shadow-lg) !important;
+  }
+  
+  /* Animation for testimonial navigation */
+  .testimonial-nav {
+    transition: transform 0.3s ease, color 0.3s ease !important;
+  }
+  
+  /* Testimonial slider animations */
+  .testimonials-slider {
+    position: relative;
+    overflow: hidden !important;
+  }
+  
+  /* Slide animation for testimomials */
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+  }
+  
+  .testimonial-slide-in {
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  .testimonial-slide-out {
+    animation: slideOut 0.5s ease forwards;
+  }
+  
+  /* Enhance mobile navigation experience */
+  @media (max-width: 960px) {
+    .nav-menu {
+      transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease !important;
+    }
+    
+    .nav-link, .dropdown-link {
+      transition: background-color 0.3s ease, color 0.3s ease !important;
+    }
+    
+    .dropdown-menu {
+      transition: max-height 0.5s cubic-bezier(0.77, 0, 0.175, 1) !important;
+    }
+  }
+  
+  /* Enhanced image hover effects */
+  .specialty-image, 
+  .service-image, 
+  .hero-image,
+  .specialty-detailed-image {
+    transition: transform 0.7s ease !important;
+  }
+  
+  .specialty-card:hover .specialty-image,
+  .service-card:hover .service-image,
+  .hero-image:hover,
+  .specialty-image-container:hover .specialty-detailed-image {
+    transform: scale(1.08) !important;
+  }
+  
+  /* Enhance mobile touch interaction */
+  @media (max-width: 768px) {
+    a, button, .nav-link, .dropdown-toggle, .cta-button {
+      padding: var(--spacing-sm) !important;
+      min-height: 44px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+  }
+  
+  /* New wrapper structure for specialty cards (optional) */
+  .specialty-image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border-top-left-radius: var(--border-radius-md);
+    border-top-right-radius: var(--border-radius-md);
+  }
+  
+  .specialty-content-wrapper {
+    padding: var(--spacing-md);
+  }

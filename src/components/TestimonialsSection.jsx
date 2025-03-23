@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaQuoteLeft, FaStar, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import '../styles/components/testimonials.css';
@@ -48,6 +48,8 @@ const TestimonialsSection = ({ isPreview }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleTestimonials, setVisibleTestimonials] = useState([]);
   const [testimonialsPerView, setTestimonialsPerView] = useState(2);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const sliderRef = useRef(null);
   
   // Determinar cuántos testimonios mostrar por pantalla según el tamaño
   const getTestimonialsPerView = () => {
@@ -89,13 +91,110 @@ const TestimonialsSection = ({ isPreview }) => {
   }, [currentIndex, testimonialsPerView, displayedTestimonials]); // Dependencias explícitas
   
   const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => 
-      (prevIndex + 1) % displayedTestimonials.length);
+    if (isAnimating) return;
+    
+    setIsAnimating(true);
+    
+    // Apply exit animation
+    if (sliderRef.current) {
+      const cards = sliderRef.current.querySelectorAll('.testimonial-card');
+      cards.forEach(card => {
+        card.classList.add('testimonial-slide-out');
+      });
+    }
+    
+    // Wait for exit animation to complete
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => 
+        (prevIndex + 1) % displayedTestimonials.length);
+      
+      // Remove exit animation class and add entry animation after state update
+      setTimeout(() => {
+        if (sliderRef.current) {
+          const cards = sliderRef.current.querySelectorAll('.testimonial-card');
+          cards.forEach(card => {
+            card.classList.remove('testimonial-slide-out');
+            card.classList.add('testimonial-slide-in');
+          });
+          
+          // Remove entry animation class after it completes
+          setTimeout(() => {
+            cards.forEach(card => {
+              card.classList.remove('testimonial-slide-in');
+            });
+            setIsAnimating(false);
+          }, 500);
+        }
+      }, 50);
+    }, 400);
   };
   
   const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => 
-      (prevIndex - 1 + displayedTestimonials.length) % displayedTestimonials.length);
+    if (isAnimating) return;
+    
+    setIsAnimating(true);
+    
+    // Apply exit animation
+    if (sliderRef.current) {
+      const cards = sliderRef.current.querySelectorAll('.testimonial-card');
+      cards.forEach(card => {
+        card.classList.add('testimonial-slide-out');
+      });
+    }
+    
+    // Wait for exit animation to complete
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => 
+        (prevIndex - 1 + displayedTestimonials.length) % displayedTestimonials.length);
+      
+      // Remove exit animation class and add entry animation after state update
+      setTimeout(() => {
+        if (sliderRef.current) {
+          const cards = sliderRef.current.querySelectorAll('.testimonial-card');
+          cards.forEach(card => {
+            card.classList.remove('testimonial-slide-out');
+            card.classList.add('testimonial-slide-in');
+          });
+          
+          // Remove entry animation class after it completes
+          setTimeout(() => {
+            cards.forEach(card => {
+              card.classList.remove('testimonial-slide-in');
+            });
+            setIsAnimating(false);
+          }, 500);
+        }
+      }, 50);
+    }, 400);
+  };
+  
+  // Touch swipe functionality for mobile
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  
+  // Required minimum distance between touch start and touch end to be detected as swipe
+  const minSwipeDistance = 50;
+  
+  const onTouchStart = (e) => {
+    setTouchEnd(null); // Reset values
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      nextTestimonial();
+    } else if (isRightSwipe) {
+      prevTestimonial();
+    }
   };
   
   // Renderizar estrellas según la calificación
@@ -121,11 +220,22 @@ const TestimonialsSection = ({ isPreview }) => {
         </div>
 
         <div className="testimonials-container">
-          <button className="testimonial-nav prev" onClick={prevTestimonial} aria-label="Testimonio anterior">
+          <button 
+            className="testimonial-nav prev" 
+            onClick={prevTestimonial} 
+            aria-label="Testimonio anterior"
+            disabled={isAnimating}
+          >
             <FaArrowLeft />
           </button>
           
-          <div className="testimonials-slider">
+          <div 
+            className="testimonials-slider" 
+            ref={sliderRef}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
             {visibleTestimonials.map((testimonial) => (
               <div className="testimonial-card" key={testimonial.id}>
                 <div className="testimonial-content">
@@ -148,7 +258,12 @@ const TestimonialsSection = ({ isPreview }) => {
             ))}
           </div>
           
-          <button className="testimonial-nav next" onClick={nextTestimonial} aria-label="Siguiente testimonio">
+          <button 
+            className="testimonial-nav next" 
+            onClick={nextTestimonial} 
+            aria-label="Siguiente testimonio"
+            disabled={isAnimating}
+          >
             <FaArrowRight />
           </button>
         </div>
