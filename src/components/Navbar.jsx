@@ -1,18 +1,58 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import '../styles/components/navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    // Toggle body class to prevent scrolling when menu is open
+    if (!isOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
   };
 
   const closeMenu = () => {
     setIsOpen(false);
+    document.body.classList.remove('menu-open');
+    setActiveDropdown(null);
   };
+
+  const toggleDropdown = (index) => {
+    if (activeDropdown === index) {
+      setActiveDropdown(null);
+    } else {
+      setActiveDropdown(index);
+    }
+  };
+
+  // Close menu when clicking outside or on resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 960 && isOpen) {
+        closeMenu();
+      }
+    };
+
+    const handleClickOutside = (e) => {
+      if (isOpen && !e.target.closest('.navbar-container')) {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <nav className="navbar">
@@ -37,8 +77,11 @@ const Navbar = () => {
               Sobre Mí
             </Link>
           </li>
-          <li className="nav-item dropdown">
-            <span className="nav-link dropdown-toggle">
+          <li className={`nav-item dropdown ${activeDropdown === 2 ? 'active' : ''}`}>
+            <span 
+              className="nav-link dropdown-toggle" 
+              onClick={() => toggleDropdown(2)}
+            >
               Especialidades
             </span>
             <ul className="dropdown-menu">

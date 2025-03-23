@@ -2,6 +2,7 @@
 import TestimonialsSection from '../components/TestimonialsSection';
 import ContactSection from '../components/ContactSection';
 import '../styles/pages/inner-pages.css';
+import { Link } from 'react-router-dom';
 
 const Testimonials = () => {
   return (
@@ -10,7 +11,7 @@ const Testimonials = () => {
         <div className="container">
           <h1>Testimonios</h1>
           <div className="breadcrumbs">
-            <a href="/">Inicio</a> / <span>Testimonios</span>
+            <Link to="/">Inicio</Link> / <span>Testimonios</span>
           </div>
         </div>
       </div>

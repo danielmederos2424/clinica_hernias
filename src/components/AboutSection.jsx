@@ -1,5 +1,6 @@
 import { FaMedal, FaHospital, FaUserMd, FaArrowRight } from 'react-icons/fa';
 import '../styles/components/about.css';
+import { Link } from 'react-router-dom';
 
 const AboutSection = ({ isPreview }) => {
   return (
@@ -64,9 +65,9 @@ const AboutSection = ({ isPreview }) => {
             </div>
             
             {isPreview && (
-              <a href="/about" className="read-more-link">
+              <Link to="/about" className="read-more-link">
                 Conocer más sobre mi trayectoria <FaArrowRight />
-              </a>
+              </Link>
             )}
           </div>
         </div>

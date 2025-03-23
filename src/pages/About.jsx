@@ -1,4 +1,4 @@
-// About.jsx
+import { Link } from 'react-router-dom';
 import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
 import ContactSection from '../components/ContactSection';
@@ -11,7 +11,7 @@ const About = () => {
         <div className="container">
           <h1>Sobre Mí</h1>
           <div className="breadcrumbs">
-            <a href="/">Inicio</a> / <span>Sobre Mí</span>
+            <Link to="/">Inicio</Link> / <span>Sobre Mí</span>
           </div>
         </div>
       </div>

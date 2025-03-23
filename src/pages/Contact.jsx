@@ -2,6 +2,7 @@
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaWhatsapp } from 'react-icons/fa';
 import ContactSection from '../components/ContactSection';
 import '../styles/pages/inner-pages.css';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   return (
@@ -10,7 +11,7 @@ const Contact = () => {
         <div className="container">
           <h1>Contacto</h1>
           <div className="breadcrumbs">
-            <a href="/">Inicio</a> / <span>Contacto</span>
+            <Link to="/">Inicio</Link> / <span>Contacto</span>
           </div>
         </div>
       </div>

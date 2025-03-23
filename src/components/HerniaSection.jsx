@@ -1,5 +1,6 @@
 import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import '../styles/components/specialties.css';
+import { Link } from 'react-router-dom';  
 
 const HerniaSection = ({ isPreview }) => {
   return (
@@ -32,9 +33,9 @@ const HerniaSection = ({ isPreview }) => {
             </ul>
 
             {isPreview && (
-              <a href="/hernias" className="read-more-link">
+              <Link to="/hernias" className="read-more-link">
                 Ver todos los servicios de cirugía de hernias <FaArrowRight />
-              </a>
+              </Link>
             )}
           </div>
 

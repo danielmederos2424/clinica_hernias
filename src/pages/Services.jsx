@@ -4,6 +4,7 @@ import HerniaSection from '../components/HerniaSection';
 import VaricesSection from '../components/VaricesSection';
 import ContactSection from '../components/ContactSection';
 import '../styles/pages/inner-pages.css';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   return (
@@ -12,7 +13,7 @@ const Services = () => {
         <div className="container">
           <h1>Servicios Médicos</h1>
           <div className="breadcrumbs">
-            <a href="/">Inicio</a> / <span>Servicios</span>
+            <Link to="/">Inicio</Link> / <span>Servicios</span>
           </div>
         </div>
       </div>

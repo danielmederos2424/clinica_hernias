@@ -28,7 +28,7 @@ const Footer = () => {
                 <FaWhatsapp className="footer-icon" />
                 WhatsApp
               </a>
-              <a href="tel:+5512345678" className="footer-contact-item">
+              <a href="tel:+529982943795" className="footer-contact-item">
                 <FaPhone className="footer-icon" />
                 +52 998 294 3795
               </a>
@@ -71,8 +71,8 @@ const Footer = () => {
             &copy; {currentYear} Dr. Boris Mederos. Todos los derechos reservados.
           </p>
           <div className="legal-links">
-            <a className="spam">sitio web desarrollado por </a>
-            <a href="https://www.webgraphix.online">WebGraphix</a>
+            <span className="spam">sitio web desarrollado por </span>
+            <a href="https://www.webgraphix.online" target="_blank" rel="noopener noreferrer">WebGraphix</a>
           </div>
         </div>
       </div>

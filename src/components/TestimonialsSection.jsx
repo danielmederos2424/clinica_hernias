@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { FaQuoteLeft, FaStar, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import '../styles/components/testimonials.css';
 
 const TestimonialsSection = ({ isPreview }) => {
-  const testimonials = [
+  // Use useMemo for testimonials array to keep reference stable
+  const testimonials = useMemo(() => [
     {
       id: 1,
       name: 'María Rodríguez',
@@ -36,10 +38,12 @@ const TestimonialsSection = ({ isPreview }) => {
       text: 'Las arañas vasculares en mis piernas me causaban mucha inseguridad. Después de tres sesiones de escleroterapia con el Dr., mis piernas lucen completamente diferentes. El procedimiento fue prácticamente indoloro.',
       image: '/images/placeholder-testimonial-4.jpg'
     }
-  ];
+  ], []);
 
-  // Para la versión previa, mostrar solo los primeros 2 testimonios
-  const displayedTestimonials = isPreview ? testimonials.slice(0, 2) : testimonials;
+  // Use useMemo to prevent recreation of this array on every render
+  const displayedTestimonials = useMemo(() => {
+    return isPreview ? testimonials.slice(0, 2) : testimonials;
+  }, [isPreview, testimonials]);
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleTestimonials, setVisibleTestimonials] = useState([]);
@@ -151,9 +155,9 @@ const TestimonialsSection = ({ isPreview }) => {
         
         {isPreview && (
           <div className="view-all-container">
-            <a href="/testimonials" className="btn-outline">
+            <Link to="/testimonials" className="btn-outline">
               Ver todos los testimonios
-            </a>
+            </Link>
           </div>
         )}
         

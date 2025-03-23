@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
@@ -29,7 +30,7 @@ const Home = () => {
               />
               <h3>Cirugía de Hernias</h3>
               <p>Tratamiento especializado con técnicas mínimamente invasivas para reducir el tiempo de recuperación.</p>
-              <a href="/hernias" className="btn-outline">Conocer más</a>
+              <Link to="/hernias" className="btn-outline">Conocer más</Link>
             </div>
             
             <div className="specialty-card">
@@ -40,7 +41,7 @@ const Home = () => {
               />
               <h3>Tratamiento de Varices</h3>
               <p>Soluciones efectivas y modernas para mejorar la circulación y eliminar las venas varicosas.</p>
-              <a href="/varices" className="btn-outline">Conocer más</a>
+              <Link to="/varices" className="btn-outline">Conocer más</Link>
             </div>
           </div>
         </div>

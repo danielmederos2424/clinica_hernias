@@ -1,5 +1,6 @@
 import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import '../styles/components/specialties.css';
+import { Link } from 'react-router-dom';
 
 const VaricesSection = ({ isPreview }) => {
   return (
@@ -51,9 +52,9 @@ const VaricesSection = ({ isPreview }) => {
             </ul>
 
             {isPreview && (
-              <a href="/varices" className="read-more-link">
+              <Link to="/varices" className="read-more-link">
                 Ver todos los tratamientos para varices <FaArrowRight />
-              </a>
+              </Link>
             )}
           </div>
         </div>

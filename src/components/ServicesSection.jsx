@@ -1,5 +1,6 @@
 import { FaArrowRight } from 'react-icons/fa';
 import '../styles/components/services.css';
+import { Link } from 'react-router-dom';
 
 const ServicesSection = ({ isPreview }) => {
   const services = [
@@ -67,9 +68,9 @@ const ServicesSection = ({ isPreview }) => {
 
         {isPreview && (
           <div className="view-all-container">
-            <a href="/services" className="btn-outline">
+            <Link to="/services" className="btn-outline">
               Ver todos los servicios
-            </a>
+            </Link>
           </div>
         )}
 
