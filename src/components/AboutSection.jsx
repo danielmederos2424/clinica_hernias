@@ -27,7 +27,9 @@ const AboutSection = ({ isPreview }) => {
           <div className="about-text">
             <h3>Dr. Boris Mederos</h3>
             <h4>Cirujano General Especialista en Hernias y Varices</h4>
-            
+
+            <p>CP: 10132762 - CE: 14420078</p>
+
             <p>Soy un cirujano general con más de 25 años de experiencia, especializado en el tratamiento de hernias y varices. Mi compromiso es ofrecer soluciones médicas avanzadas con un enfoque centrado en el paciente, garantizando resultados óptimos y una recuperación rápida.</p>
             
             {!isPreview && (

@@ -88,7 +88,7 @@ const VaricesSection = ({ isPreview }) => {
               <div className="faq-list">
                 <div className="faq-item">
                   <h4>¿Los tratamientos para varices son dolorosos?</h4>
-                  <p>La mayoría de nuestros procedimientos causan mínimas molestias y se realizan con anestesia local. Los pacientes pueden experimentar ligeras incomodidades que desaparecen rápidamente.</p>
+                  <p>La mayoría de nuestros procedimientos causan mínimas molestias y se realizan sin necesidad anestesia local. Los pacientes pueden experimentar ligeras incomodidades que desaparecen rápidamente.</p>
                 </div>
                 <div className="faq-item">
                   <h4>¿Cuántas sesiones se necesitan para eliminar las varices?</h4>

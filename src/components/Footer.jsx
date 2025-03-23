@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF } from 'react-icons/fa';
 import '../styles/components/footer.css';
 
 const Footer = () => {
@@ -31,6 +31,15 @@ const Footer = () => {
               <a href="tel:+529982943795" className="footer-contact-item">
                 <FaPhone className="footer-icon" />
                 +52 998 294 3795
+              </a>
+              <a 
+                href="https://www.facebook.com/profile.php?id=100091780065318" 
+                className="footer-contact-item"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <FaFacebookF className="footer-icon" />
+                Facebook
               </a>
             </div>
           </div>
