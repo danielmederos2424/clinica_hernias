@@ -91,7 +91,7 @@ const ContactSection = () => {
                 <p>Ubicados en una zona céntrica y accesible. Estacionamiento disponible.</p>
                 <p>Cercano a estaciones de transporte público y principales vías de la ciudad.</p>
                 <a 
-                  href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7442.193493912733!2d-86.84439342409705!3d21.148547780530965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b63eaa0c46b%3A0xc6029a332264add8!2sCardiocentro%20cancun!5e0!3m2!1sen!2sus!4v1742755258318!5m2!1sen!2sus" 
+                  href="https://www.google.com/maps/search/?api=1&query=21.161908,-86.851528" 
                   className="directions-link"
                   target="_blank" 
                   rel="noopener noreferrer"

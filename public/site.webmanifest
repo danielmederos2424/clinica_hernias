@@ -1,19 +1,36 @@
 {
-    "name": "Dr. Boris Mederos",
-    "short_name": "Dr. Boris",
-    "icons": [
-      {
-        "src": "/android-chrome-192x192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "/android-chrome-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ],
-    "theme_color": "#2c7abc",
-    "background_color": "#f5f9fc",
-    "display": "standalone"
-  }
+  "name": "Dr. Boris Mederos - Cirujano General",
+  "short_name": "Dr. Boris",
+  "description": "Especialista en Cirugía de Hernias y Tratamiento de Varices en Cancún, Quintana Roo",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#2c7abc",
+  "background_color": "#f5f9fc",
+  "display": "standalone",
+  "orientation": "portrait",
+  "categories": ["health", "medical", "healthcare"],
+  "screenshots": [
+    {
+      "src": "/images/Boris.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg",
+      "platform": "wide",
+      "label": "Dr. Boris Mederos"
+    }
+  ]
+}

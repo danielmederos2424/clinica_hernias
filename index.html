@@ -4,25 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Dr. Boris - Cirujano General especializado en Cirugía de Hernias y Tratamiento de Varices" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Dr. Boris | Cirugía de Hernias y Tratamiento de Varices</title>
-    <!-- Preconectar a dominios de fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="keywords" content="cirugía de hernias, tratamiento de varices, cirujano general, Dr. Boris Mederos, Cancún, Quintana Roo" />
+    <meta name="author" content="Dr. Boris Mederos" />
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="MX-ROO" />
+    <meta name="geo.placename" content="Cancún" />
+    
     <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Preloads -->
+    <link rel="preload" href="/src/styles/index.css" as="style">
+    <link rel="preload" href="/src/main.jsx" as="script">
+    
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <!-- Metadatos Open Graph -->
     <meta property="og:title" content="Dr. Boris Mederos | Cirujano General" />
     <meta property="og:description" content="Especialista en Cirugía de Hernias y Tratamiento de Varices" />
     <meta property="og:image" content="/og-image.jpg" />
     <meta property="og:url" content="https://www.clinicahernias.com" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Clínica Dr. Boris Mederos" />
+    <meta property="og:locale" content="es_MX" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dr. Boris Mederos | Cirujano General" />
+    <meta name="twitter:description" content="Especialista en Cirugía de Hernias y Tratamiento de Varices" />
+    <meta name="twitter:image" content="/og-image.jpg" />
+    
+    <!-- Page title, will be overridden by React Helmet for each route -->
+    <title>Dr. Boris | Cirugía de Hernias y Tratamiento de Varices</title>
+    
+    <!-- Google tag verification, replace with actual verification code when available -->
+    <meta name="google-site-verification" content="your-verification-code" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- No-JavaScript Fallback -->
+    <noscript>
+      <div style="padding: 2rem; text-align: center;">
+        <h1>Dr. Boris Mederos - Cirujano General</h1>
+        <p>Esta página requiere JavaScript para funcionar correctamente.</p>
+        <p>Por favor, habilite JavaScript en su navegador o utilice un navegador compatible.</p>
+        <p>Para agendar una cita, contáctenos al +52 998 294 3795</p>
+      </div>
+    </noscript>
   </body>
 </html>
