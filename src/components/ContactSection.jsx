@@ -22,7 +22,7 @@ const ContactSection = () => {
                 </div>
                 <div className="contact-text">
                   <h4>Dirección</h4>
-                  <p>Av. Luna 5, Mz. 15 Lt 1 Sm. 43<br />Cancún. México CP. 77506</p>
+                  <p>Cardiocentro Cancún<br />Av. Tulum 232, SM.15-A, 77505<br />Cancún, Q.R., México</p>
                 </div>
               </div>
               
@@ -75,15 +75,15 @@ const ContactSection = () => {
           <div className="contact-map">
             <h3>Ubicación</h3>
             <div className="map-container">
-              {/* Simple Google Maps Embed - Replace coordinates with your actual location */}
+              {/* Google Maps Embed for Cardiocentro Cancun */}
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7442.193493912733!2d-86.84439342409705!3d21.148547780530965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b63eaa0c46b%3A0xc6029a332264add8!2sCardiocentro%20cancun!5e0!3m2!1sen!2sus!4v1742755258318!5m2!1sen!2sus" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.9652417975073!2d-86.84665462409865!3d21.137851382758396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b63eaa0c46b%3A0xc6029a332264add8!2sCardiocentro%20cancun!5e0!3m2!1sen!2sus!4v1742755258318!5m2!1sen!2sus" 
                 width="100%" 
                 height="350" 
                 style={{ border: 0, borderRadius: 'var(--border-radius-md)' }} 
                 allowFullScreen="" 
                 loading="lazy"
-                title="Ubicación del consultorio"
+                title="Ubicación del consultorio - Cardiocentro Cancún"
               ></iframe>
               
               <div className="location-info">
@@ -91,10 +91,11 @@ const ContactSection = () => {
                 <p>Ubicados en una zona céntrica y accesible. Estacionamiento disponible.</p>
                 <p>Cercano a estaciones de transporte público y principales vías de la ciudad.</p>
                 <a 
-                  href="https://www.google.com/maps/search/?api=1&query=21.161908,-86.851528" 
+                  href="https://www.google.com/maps/search/?api=1&query=Cardiocentro+cancun" 
                   className="directions-link"
                   target="_blank" 
                   rel="noopener noreferrer"
+                  aria-label="Obtener indicaciones para llegar a Cardiocentro Cancún"
                 >
                   Obtener indicaciones
                 </a>
