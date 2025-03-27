@@ -8,35 +8,67 @@ const TestimonialsSection = ({ isPreview }) => {
   const testimonials = useMemo(() => [
     {
       id: 1,
-      name: 'María Rodríguez',
-      procedure: 'Cirugía de Hernia Inguinal',
+      name: 'Angelina',
+      procedure: 'Cirugía de Hernia',
       rating: 5,
-      text: 'Mi experiencia con el Dr. fue excelente. La cirugía fue rápida y mi recuperación mucho más sencilla de lo que esperaba. Apenas tengo una pequeña cicatriz y pude volver a mis actividades normales en solo dos semanas.',
-      image: '/images/placeholder-testimonial-1.jpg'
+      text: 'Hola! Recién se operó mi esposo, recomiendo ampliamente al Dr Boris; excelente trabajo y su equipo muy profesional y amable. Gracias 🙏',
+      image: '/images/female.jpg'
     },
     {
       id: 2,
-      name: 'Carlos Mendoza',
-      procedure: 'Tratamiento de Varices',
+      name: 'Shanha',
+      procedure: 'Cirugía de Hernia',
       rating: 5,
-      text: 'Después de años sufriendo de dolor en las piernas y problemas estéticos por las varices, el tratamiento que recibí ha sido transformador. El Dr. fue muy claro explicando el procedimiento y los resultados han superado mis expectativas.',
-      image: '/images/placeholder-testimonial-2.jpg'
+      text: 'El doctor Boris es increíble! Me operó de hernia y amé el proceso y resultados. 1000x1000 recomendado.',
+      image: '/images/female.jpg'
     },
     {
       id: 3,
-      name: 'Laura Sánchez',
-      procedure: 'Cirugía de Hernia Umbilical',
+      name: 'Ave',
+      procedure: 'Cirugía de Hernia',
       rating: 5,
-      text: 'Estaba muy preocupada por la cirugía, pero el Dr. me dio mucha confianza desde la primera consulta. El procedimiento fue mínimamente invasivo y me recuperé muy rápido. Altamente recomendado.',
-      image: '/images/placeholder-testimonial-3.jpg'
+      text: 'Excelente servicio, muy buenos médicos y muy económico. Me operaron de hernia inguinal e hidrocele, todo bien gracias a Dios y al Doctor que me operó. Altamente recomendado.',
+      image: '/images/female.jpg'
     },
     {
       id: 4,
-      name: 'Roberto Jiménez',
-      procedure: 'Escleroterapia',
+      name: 'Johan',
+      procedure: 'Cirugía de Hernia',
       rating: 5,
-      text: 'Las arañas vasculares en mis piernas me causaban mucha inseguridad. Después de tres sesiones de escleroterapia con el Dr., mis piernas lucen completamente diferentes. El procedimiento fue prácticamente indoloro.',
-      image: '/images/placeholder-testimonial-4.jpg'
+      text: 'Muy recomendable, la verdad. Atención, servicio y precio; me operé con ellos una umbilical y muy bien todo.',
+      image: '/images/male.jpg'
+    },
+    {
+    id: 5,
+      name: 'Elena',
+      procedure: 'Tratamiento de Varices',
+      rating: 5,
+      text: 'Recomendado ampliamente, muy excelente médico',
+      image: '/images/female.jpg'
+    },
+    {
+    id: 6,
+      name: 'Manlio',
+      procedure: 'Cirugía de Hernia',
+      rating: 5,
+      text: 'Excelente servicio, acabo de hacerme una cirugía y todo salió muy bien, muy estético y con mucha higiene. Lo recomiendo mucho.',
+      image: '/images/male.jpg'
+    },
+    {
+    id: 7,
+      name: 'Jose',
+      procedure: 'Cirugía de Hernia',
+      rating: 5,
+      text: 'Muy buen servicio, médicos buenos, y muy económicos. Me operaron y todo muy bien gracias a Dios y al cirujano que me operó. Bendiciones para todo el personal de esa clínica.',
+      image: '/images/male.jpg'
+    },
+    {
+    id: 8,
+    name: 'Daniela',
+    procedure: 'Cirugía de Hernia',
+    rating: 5,
+    text: 'Muy recomendable clínica, muy buen trato. Bendiciones para el doctor Boris que operó a mi esposo. Dios le de más salud y sabiduría para atender a más personas.',
+    image: '/images/female.jpg'
     }
   ], []);
 
@@ -216,7 +248,7 @@ const TestimonialsSection = ({ isPreview }) => {
       <div className="container">
         <div className="section-title">
           <h2>Testimonios</h2>
-          <p className="subtitle">Lo que nuestros pacientes dicen sobre su experiencia</p>
+          <p className="subtitle">Lo que nuestros pacientes dicen sobre su experiencia (No mostramos fotos ni nombre completo para conservar la privacidad de nuestros pacientes, todas las opiniones fueron extraídas de nuestra página de Facebook y mensajes recibidos de forma directa)</p>
         </div>
 
         <div className="testimonials-container">
