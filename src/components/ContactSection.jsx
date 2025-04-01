@@ -22,7 +22,7 @@ const ContactSection = () => {
                 </div>
                 <div className="contact-text">
                   <h4>Dirección</h4>
-                  <p>Cardiocentro Cancún<br />Av. Tulum 232, SM.15-A, 77505<br />Cancún, Q.R., México</p>
+                  <p>Cardiocentro Cancún<br />Av. Luna 5, Mz. 15 Lt 1 Sm. 43, CP. 77506<br />Cancún, Q.R., México</p>
                 </div>
               </div>
               
