@@ -47,13 +47,13 @@ const SEOWrapper = () => {
   // Define SEO configurations for each route
   const seoConfig = {
     '/': {
-      title: 'Dr. Boris | Cirugía de Hernias y Tratamiento de Varices en Cancún',
+      title: 'Dr. Boris Mederos | Cirujano General en Cancún',
       description: 'Dr. Boris Mederos - Cirujano General especializado en cirugía de hernias y tratamiento de varices en Cancún, Quintana Roo. Atención médica de calidad.',
       canonical: `${baseUrl}/`,
       schema: getHomeSchema()
     },
     '/about': {
-      title: 'Sobre Dr. Boris | Cirujano General en Cancún',
+      title: 'Sobre Dr. Boris Mederos | Cirujano General en Cancún',
       description: 'Conozca al Dr. Boris Mederos, cirujano general con amplia experiencia en cirugía de hernias y tratamiento de varices en Cancún.',
       canonical: `${baseUrl}/about`,
       schema: webPageSchema

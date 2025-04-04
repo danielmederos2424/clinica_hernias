@@ -5,8 +5,8 @@ import useSEO from '../hooks/useSEO';
  * Uses custom useSEO hook instead of react-helmet-async for React 19 compatibility
  */
 const SEO = ({ 
-  title = 'Dr. Boris | Cirugía de Hernias y Tratamiento de Varices',
-  description = 'Dr. Boris - Cirujano General especializado en Cirugía de Hernias y Tratamiento de Varices',
+  title = 'Dr. Boris Mederos | Cirujano General en Cancún',
+  description = 'Dr. Boris Mederos - Cirujano General especializado en Cirugía de Hernias y Tratamiento de Varices en Cancún',
   keywords = 'cirugía de hernias, tratamiento de varices, cirujano general, Dr. Boris Mederos, Cancún, Quintana Roo',
   canonical = 'https://www.clinicahernias.com',
   ogImage = '/og-image.jpg',

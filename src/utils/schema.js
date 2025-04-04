@@ -10,23 +10,29 @@ export const localBusinessSchema = {
   "telephone": "+529982943795",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Consultorio #204, Plaza Médica Américas",
+    "streetAddress": "Cardiocentro Cancún, Av. Luna 5, Mz. 15 Lt 1 Sm. 43",
     "addressLocality": "Cancún",
     "addressRegion": "Quintana Roo",
-    "postalCode": "77533",
+    "postalCode": "77506",
     "addressCountry": "MX"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "21.1619",
-    "longitude": "-86.8515"
+    "latitude": "21.137851",
+    "longitude": "-86.846654"
   },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "09:00",
-      "closes": "17:00"
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "09:00",
+      "closes": "13:00"
     }
   ],
   "priceRange": "$$",
@@ -52,18 +58,12 @@ export const doctorSchema = {
   "jobTitle": "Cirujano General",
   "worksFor": {
     "@type": "MedicalClinic",
-    "name": "Clínica Dr. Boris Mederos"
+    "name": "Cardiocentro Cancún"
   },
-  "image": "https://www.clinicahernias.com/public/images/Boris.jpg",
+  "image": "https://www.clinicahernias.com/images/Boris.jpg",
   "description": "Cirujano General especializado en Cirugía de Hernias y Tratamiento de Varices",
   "medicalSpecialty": ["Cirugía General", "Cirugía de Hernias", "Flebología"],
-  "memberOf": [
-    {
-      "@type": "Organization",
-      "name": "Asociación Mexicana de Cirugía General"
-    }
-  ],
-  "knowsLanguage": ["es", "en"],
+  "knowsLanguage": ["es"],
   "hasCredential": [
     {
       "@type": "EducationalOccupationalCredential",
@@ -71,7 +71,7 @@ export const doctorSchema = {
       "name": "Médico Cirujano",
       "recognizedBy": {
         "@type": "Organization",
-        "name": "Universidad Nacional Autónoma de México"
+        "name": "Universidad de Ciencias Médicas de La Habana"
       }
     },
     {
@@ -80,7 +80,16 @@ export const doctorSchema = {
       "name": "Especialista en Cirugía General",
       "recognizedBy": {
         "@type": "Organization",
-        "name": "Consejo Mexicano de Cirugía General"
+        "name": "Universidad de Ciencias Médicas de La Habana"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certification",
+      "name": "Especialista en Cirugía Cardiovascular",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Universidad de Ciencias Médicas de La Habana"
       }
     }
   ]
@@ -90,8 +99,8 @@ export const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "url": "https://www.clinicahernias.com",
-  "name": "Dr. Boris Mederos | Cirugía de Hernias y Tratamiento de Varices",
-  "description": "Clínica especializada en cirugía de hernias y tratamiento de varices en Cancún, Quintana Roo."
+  "name": "Dr. Boris Mederos | Cirujano General en Cancún",
+  "description": "Especialista en cirugía de hernias y tratamiento de varices en Cancún, Quintana Roo."
 };
 
 export const faqSchema = {
