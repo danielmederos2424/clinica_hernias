@@ -1,4 +1,4 @@
-import { FaCalendarCheck, FaCheck } from 'react-icons/fa';
+import { FaCalendarCheck, FaCheck, FaPercentage } from 'react-icons/fa';
 import '../styles/components/hero.css';
 
 const Hero = ({ title, subtitle, description, ctaText, ctaLink }) => {
@@ -39,9 +39,19 @@ const Hero = ({ title, subtitle, description, ctaText, ctaLink }) => {
         <div className="container">
           <h2 className="visually-hidden">Nuestros servicios destacados</h2>
           <div className="features-grid">
+            <article className="feature-card discount-feature">
+              <div className="feature-icon-wrapper discount-icon">
+                <FaPercentage className="icon" />
+              </div>
+              <div className="feature-content">
+                <h3>50% de Descuento</h3>
+                <p>Ofrecemos 50% de descuento en cirugía de hernias sobre el precio oficial. ¡Consulta ahora!</p>
+              </div>
+            </article>
+            
             <article className="feature-card">
-              <div className="feature-icon" aria-hidden="true">
-                <FaCheck />
+              <div className="feature-icon-wrapper">
+                <FaCheck className="icon" />
               </div>
               <div className="feature-content">
                 <h3>Atención Personalizada</h3>
@@ -50,8 +60,8 @@ const Hero = ({ title, subtitle, description, ctaText, ctaLink }) => {
             </article>
             
             <article className="feature-card">
-              <div className="feature-icon" aria-hidden="true">
-                <FaCheck />
+              <div className="feature-icon-wrapper">
+                <FaCheck className="icon" />
               </div>
               <div className="feature-content">
                 <h3>Técnicas Avanzadas</h3>
@@ -60,8 +70,8 @@ const Hero = ({ title, subtitle, description, ctaText, ctaLink }) => {
             </article>
             
             <article className="feature-card">
-              <div className="feature-icon" aria-hidden="true">
-                <FaCheck />
+              <div className="feature-icon-wrapper">
+                <FaCheck className="icon" />
               </div>
               <div className="feature-content">
                 <h3>Recuperación Rápida</h3>

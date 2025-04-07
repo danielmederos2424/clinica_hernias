@@ -114,7 +114,7 @@
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-lg);
   max-width: 1200px;
   margin: 0 auto;
@@ -122,6 +122,7 @@
 
 .feature-card {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   background-color: var(--background-color);
   padding: var(--spacing-lg);
@@ -129,6 +130,7 @@
   box-shadow: var(--box-shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
+  border-left: 4px solid var(--primary-color);
 }
 
 .feature-card:hover {
@@ -136,28 +138,28 @@
   box-shadow: var(--box-shadow-md);
 }
 
-.feature-icon {
+.feature-icon-wrapper {
   background-color: var(--primary-color);
   color: var(--light-text);
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: var(--spacing-md);
-  font-size: 1.2rem;
-  flex-shrink: 0;
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
 }
 
 .feature-content {
   flex: 1;
+  width: 100%;
 }
 
 .feature-content h3 {
   color: var(--secondary-color);
   margin-bottom: var(--spacing-sm);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
@@ -166,6 +168,21 @@
   margin-bottom: 0;
   color: var(--text-color);
   line-height: 1.5;
+}
+
+/* Style for the discount feature */
+.discount-feature {
+  background-color: #ffffff;
+  border-left: 4px solid var(--error-color);
+}
+
+.discount-icon {
+  background-color: var(--error-color);
+}
+
+.discount-feature h3 {
+  color: var(--error-color);
+  font-weight: 600;
 }
 
 /* Responsive */
@@ -246,14 +263,14 @@
     font-size: 0.95rem;
   }
   
-  .feature-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+  .feature-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
   }
   
   .feature-content h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
   .feature-content p {
