@@ -1,4 +1,14 @@
+# www.robotstxt.org
+
+# Allow crawling of all content
 User-agent: *
 Allow: /
 
+# Performance optimized assets - no need for crawling
+User-agent: *
+Disallow: /assets/
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Sitemap location
 Sitemap: https://www.clinicahernias.com/sitemap.xml

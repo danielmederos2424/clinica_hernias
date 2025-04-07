@@ -12,6 +12,49 @@
     <meta name="geo.placename" content="Cancún" />
     <meta name="google" content="notranslate">
     
+    <!-- Performance optimizations -->
+    <meta http-equiv="Cache-Control" content="max-age=1209600" /> <!-- 2 weeks --> 
+    
+    <!-- Resource hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- Critical CSS inline -->
+    <style>
+      /* Basic reset */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      /* Basic styling for immediate render */
+      body {
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+      }
+      .hero { background-color: #0c3483; color: white; position: relative; }
+      .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+        background: linear-gradient(135deg, rgba(12, 52, 131, 0.9) 0%, rgba(25, 100, 200, 0.7) 100%); z-index: 1; }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+    </style>
+    
+    <!-- Preloads for critical assets -->
+    <link rel="preload" href="/images/optimized/Boris.webp" as="image" fetchpriority="high" type="image/webp">
+    <link rel="preload" href="/images/optimized/Boris.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="/images/optimized/hernia.webp" as="image" type="image/webp">
+    <link rel="preload" href="/images/optimized/hernia.jpg" as="image">
+    <link rel="preload" href="/images/optimized/varices.webp" as="image" type="image/webp">
+    <link rel="preload" href="/images/optimized/varices.jpeg" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
+    
     <!-- Favicon - Important for Google Search Results -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -22,14 +65,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="canonical" href="https://www.clinicahernias.com/[path]">
-
-    <!-- Preloads -->
-    <link rel="preload" href="/src/styles/index.css" as="style">
-    <link rel="preload" href="/src/main.jsx" as="script">
-    
-    <!-- Preconnects -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Metadatos Open Graph -->
     <meta property="og:title" content="Dr. Boris Mederos | Cirujano General en Cancún" />

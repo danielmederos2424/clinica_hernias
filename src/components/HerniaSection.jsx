@@ -1,8 +1,88 @@
+import { memo } from 'react';
 import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import '../styles/components/specialties.css';
 import { Link } from 'react-router-dom';  
 
-const HerniaSection = ({ isPreview }) => {
+// Memoized FAQ Item component for performance
+const FAQItem = memo(({ question, answer }) => (
+  <details className="faq-item">
+    <summary>
+      <h4>{question}</h4>
+    </summary>
+    <p>{answer}</p>
+  </details>
+));
+
+// Memoized Treatment Option Card
+const OptionCard = memo(({ title, description }) => (
+  <article className="option-card">
+    <h4>{title}</h4>
+    <p>{description}</p>
+  </article>
+));
+
+// Main component with memoization for performance
+const HerniaSection = memo(({ isPreview }) => {
+  // Data for hernia types
+  const herniaTypes = [
+    { id: 'inguinal', text: 'Hernias inguinales' },
+    { id: 'umbilical', text: 'Hernias umbilicales' },
+    { id: 'incisional', text: 'Hernias incisionales' },
+    { id: 'epigastric', text: 'Hernias epigástricas' },
+    { id: 'hiatal', text: 'Hernias hiatales' }
+  ];
+
+  // Data for treatment options
+  const treatmentOptions = [
+    {
+      id: 'diagnosis',
+      title: 'Diagnóstico Preciso',
+      description: 'Utilizamos tecnología avanzada para identificar el tipo exacto de hernia y determinar el mejor enfoque quirúrgico para cada caso.'
+    },
+    {
+      id: 'laparoscopic',
+      title: 'Cirugía Laparoscópica',
+      description: 'Realizamos procedimientos mínimamente invasivos que permiten una recuperación más rápida y menos dolorosa.'
+    },
+    {
+      id: 'mesh',
+      title: 'Técnicas con Malla',
+      description: 'Utilizamos materiales de última generación para reforzar la zona debilitada y prevenir recurrencias.'
+    },
+    {
+      id: 'followup',
+      title: 'Seguimiento Personalizado',
+      description: 'Acompañamos a nuestros pacientes durante todo el proceso de recuperación para garantizar resultados óptimos.'
+    }
+  ];
+
+  // Data for FAQs
+  const faqs = [
+    {
+      id: 'recovery',
+      question: '¿Cuánto tiempo dura la recuperación después de una cirugía de hernia?',
+      answer: 'La recuperación varía según el tipo de hernia y la técnica utilizada. En general, con cirugía laparoscópica, la mayoría de los pacientes pueden retomar sus actividades normales en 1-2 semanas.'
+    },
+    {
+      id: 'hospitalization',
+      question: '¿La cirugía de hernia requiere hospitalización?',
+      answer: 'Muchas cirugías de hernia se realizan de forma ambulatoria, lo que significa que puede regresar a casa el mismo día. En casos más complejos, podría requerirse una estancia hospitalaria de 1-2 días.'
+    },
+    {
+      id: 'recurrence',
+      question: '¿Las hernias pueden volver a aparecer después de la cirugía?',
+      answer: 'Con las técnicas modernas y el uso de mallas, la tasa de recurrencia es baja (menos del 5%). El seguimiento adecuado y evitar factores de riesgo reduce aún más esta posibilidad.'
+    }
+  ];
+
+  // Benefits list
+  const benefits = [
+    'Recuperación más rápida',
+    'Menor dolor postoperatorio',
+    'Mínimas cicatrices',
+    'Menor riesgo de recurrencia'
+  ];
+
   return (
     <section className={`specialty-section hernia-section ${isPreview ? 'preview' : ''}`} aria-labelledby={isPreview ? "hernia-preview-title" : "hernia-title"}>
       <div className="container">
@@ -25,11 +105,11 @@ const HerniaSection = ({ isPreview }) => {
             
             <h3>Tipos de hernias que tratamos:</h3>
             <ul className="benefits-list" aria-label="Tipos de hernias tratadas">
-              <li><FaCheckCircle className="benefit-icon" aria-hidden="true" /> Hernias inguinales</li>
-              <li><FaCheckCircle className="benefit-icon" aria-hidden="true" /> Hernias umbilicales</li>
-              <li><FaCheckCircle className="benefit-icon" aria-hidden="true" /> Hernias incisionales</li>
-              <li><FaCheckCircle className="benefit-icon" aria-hidden="true" /> Hernias epigástricas</li>
-              <li><FaCheckCircle className="benefit-icon" aria-hidden="true" /> Hernias hiatales</li>
+              {herniaTypes.map(type => (
+                <li key={type.id}>
+                  <FaCheckCircle className="benefit-icon" aria-hidden="true" /> {type.text}
+                </li>
+              ))}
             </ul>
 
             {isPreview && (
@@ -40,22 +120,26 @@ const HerniaSection = ({ isPreview }) => {
           </div>
 
           <div className="specialty-image-container">
-            <img 
-              src="/images/hernias.jpg" 
-              alt="Ilustración de cirugía de hernias realizada por el Dr. Boris Mederos en Cancún" 
-              className="specialty-detailed-image"
-              loading="lazy"
-              width="500"
-              height="350"
-            />
+            <picture>
+              <source srcSet="/images/optimized/hernias.webp" type="image/webp" />
+              <source srcSet="/images/optimized/hernias.jpg" type="image/jpeg" />
+              <img 
+                src="/images/optimized/hernias.jpg" 
+                alt="Ilustración de cirugía de hernias realizada por el Dr. Boris Mederos en Cancún" 
+                className="specialty-detailed-image"
+                loading="lazy"
+                width="500"
+                height="350"
+                decoding="async"
+              />
+            </picture>
             <div className="image-overlay">
               <div className="overlay-content">
                 <h3>Beneficios de nuestra cirugía de hernias</h3>
                 <ul aria-label="Beneficios de las técnicas quirúrgicas">
-                  <li>Recuperación más rápida</li>
-                  <li>Menor dolor postoperatorio</li>
-                  <li>Mínimas cicatrices</li>
-                  <li>Menor riesgo de recurrencia</li>
+                  {benefits.map((benefit, index) => (
+                    <li key={index}>{benefit}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -67,46 +151,26 @@ const HerniaSection = ({ isPreview }) => {
             <div className="treatment-options">
               <h3>Nuestro Enfoque de Tratamiento</h3>
               <div className="options-grid">
-                <article className="option-card">
-                  <h4>Diagnóstico Preciso</h4>
-                  <p>Utilizamos tecnología avanzada para identificar el tipo exacto de hernia y determinar el mejor enfoque quirúrgico para cada caso.</p>
-                </article>
-                <article className="option-card">
-                  <h4>Cirugía Laparoscópica</h4>
-                  <p>Realizamos procedimientos mínimamente invasivos que permiten una recuperación más rápida y menos dolorosa.</p>
-                </article>
-                <article className="option-card">
-                  <h4>Técnicas con Malla</h4>
-                  <p>Utilizamos materiales de última generación para reforzar la zona debilitada y prevenir recurrencias.</p>
-                </article>
-                <article className="option-card">
-                  <h4>Seguimiento Personalizado</h4>
-                  <p>Acompañamos a nuestros pacientes durante todo el proceso de recuperación para garantizar resultados óptimos.</p>
-                </article>
+                {treatmentOptions.map(option => (
+                  <OptionCard 
+                    key={option.id}
+                    title={option.title}
+                    description={option.description}
+                  />
+                ))}
               </div>
             </div>
 
             <section className="faq-section">
               <h3>Preguntas Frecuentes sobre Cirugía de Hernias</h3>
               <div className="faq-list">
-                <details className="faq-item">
-                  <summary>
-                    <h4>¿Cuánto tiempo dura la recuperación después de una cirugía de hernia?</h4>
-                  </summary>
-                  <p>La recuperación varía según el tipo de hernia y la técnica utilizada. En general, con cirugía laparoscópica, la mayoría de los pacientes pueden retomar sus actividades normales en 1-2 semanas.</p>
-                </details>
-                <details className="faq-item">
-                  <summary>
-                    <h4>¿La cirugía de hernia requiere hospitalización?</h4>
-                  </summary>
-                  <p>Muchas cirugías de hernia se realizan de forma ambulatoria, lo que significa que puede regresar a casa el mismo día. En casos más complejos, podría requerirse una estancia hospitalaria de 1-2 días.</p>
-                </details>
-                <details className="faq-item">
-                  <summary>
-                    <h4>¿Las hernias pueden volver a aparecer después de la cirugía?</h4>
-                  </summary>
-                  <p>Con las técnicas modernas y el uso de mallas, la tasa de recurrencia es baja (menos del 5%). El seguimiento adecuado y evitar factores de riesgo reduce aún más esta posibilidad.</p>
-                </details>
+                {faqs.map(faq => (
+                  <FAQItem 
+                    key={faq.id}
+                    question={faq.question}
+                    answer={faq.answer}
+                  />
+                ))}
               </div>
             </section>
           </>
@@ -126,6 +190,6 @@ const HerniaSection = ({ isPreview }) => {
       </div>
     </section>
   );
-};
+});
 
 export default HerniaSection;

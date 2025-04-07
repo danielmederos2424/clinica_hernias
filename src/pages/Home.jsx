@@ -23,22 +23,38 @@ const Home = () => {
         <div className="container">
           <div className="specialties-grid">
             <div className="specialty-card">
-              <img 
-                src="/images/hernia.jpg" 
-                alt="Cirugía de Hernias" 
-                className="specialty-image"
-              />
+              <picture>
+                <source srcSet="/images/optimized/hernia.webp" type="image/webp" />
+                <source srcSet="/images/optimized/hernia.jpg" type="image/jpeg" />
+                <img 
+                  src="/images/optimized/hernia.jpg" 
+                  alt="Cirugía de Hernias" 
+                  className="specialty-image"
+                  loading="eager"
+                  width="300"
+                  height="200"
+                  decoding="async"
+                />
+              </picture>
               <h3>Cirugía de Hernias</h3>
               <p>Tratamiento especializado con técnicas mínimamente invasivas para reducir el tiempo de recuperación.</p>
               <Link to="/hernias" className="btn-outline">Conocer más</Link>
             </div>
             
             <div className="specialty-card">
-              <img 
-                src="/images/varices.jpeg" 
-                alt="Tratamiento de Varices" 
-                className="specialty-image"
-              />
+              <picture>
+                <source srcSet="/images/optimized/varices.webp" type="image/webp" />
+                <source srcSet="/images/optimized/varices.jpeg" type="image/jpeg" />
+                <img 
+                  src="/images/optimized/varices.jpeg" 
+                  alt="Tratamiento de Varices" 
+                  className="specialty-image"
+                  loading="eager" 
+                  width="300"
+                  height="200"
+                  decoding="async"
+                />
+              </picture>
               <h3>Tratamiento de Varices</h3>
               <p>Soluciones efectivas y modernas para mejorar la circulación y eliminar las venas varicosas.</p>
               <Link to="/varices" className="btn-outline">Conocer más</Link>

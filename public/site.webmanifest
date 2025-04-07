@@ -26,7 +26,7 @@
   "categories": ["health", "medical", "healthcare"],
   "screenshots": [
     {
-      "src": "/images/Boris.jpg",
+      "src": "/images/optimized/Boris.jpg",
       "sizes": "1280x720",
       "type": "image/jpg",
       "platform": "wide",

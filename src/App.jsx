@@ -1,19 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import ScrollToTop from './components/ScrollToTop';
 import SEO from './components/SEO';
-import Home from './pages/Home';
-import About from './pages/About';
-import Hernias from './pages/Hernias';
-import Varices from './pages/Varices';
-import Services from './pages/Services';
-import Testimonials from './pages/Testimonials';
-import Contact from './pages/Contact';
 import './styles/index.css';
-import './styles/mobile-enhancements.css'; // Import our new mobile enhancements
+import './styles/mobile-enhancements.css';
 
 // Import schema configurations
 import { 
@@ -25,6 +18,24 @@ import {
   faqSchema
 } from './utils/schema';
 
+// Lazy load pages for code splitting and better performance
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Hernias = lazy(() => import('./pages/Hernias'));
+const Varices = lazy(() => import('./pages/Varices'));
+const Services = lazy(() => import('./pages/Services'));
+const Testimonials = lazy(() => import('./pages/Testimonials'));
+const Contact = lazy(() => import('./pages/Contact'));
+
+// Loading component for suspense fallback
+const PageLoader = () => (
+  <div className="page-loader">
+    <div className="loader-content">
+      <p>Cargando...</p>
+    </div>
+  </div>
+);
+
 // Simple animated page wrapper
 const AnimatedPage = ({ children }) => {
   useEffect(() => {
@@ -33,6 +44,23 @@ const AnimatedPage = ({ children }) => {
     if (page) {
       page.classList.add('page-animation-enter');
     }
+    
+    // Prefetch other pages after current page loads
+    const prefetchPages = () => {
+      // Only prefetch pages on production
+      if (process.env.NODE_ENV === 'production') {
+        // Start prefetching other routes after a delay
+        const timer = setTimeout(() => {
+          import('./pages/About');
+          import('./pages/Hernias');
+          import('./pages/Varices');
+        }, 1000);
+        
+        return () => clearTimeout(timer);
+      }
+    };
+    
+    prefetchPages();
   }, []);
 
   return <div className="page-wrapper">{children}</div>;
@@ -44,7 +72,7 @@ const SEOWrapper = () => {
   const path = location.pathname;
   const baseUrl = 'https://www.clinicahernias.com';
   
-  // Define SEO configurations for each route
+  // Define SEO configurations for each route - memoized object
   const seoConfig = {
     '/': {
       title: 'Dr. Boris Mederos | Cirujano General en Cancún',
@@ -104,15 +132,17 @@ function App() {
       <div className="app">
         <Navbar />
         <main className="main-content">
-          <Routes>
-            <Route path="/" element={<AnimatedPage><Home /></AnimatedPage>} />
-            <Route path="/about" element={<AnimatedPage><About /></AnimatedPage>} />
-            <Route path="/hernias" element={<AnimatedPage><Hernias /></AnimatedPage>} />
-            <Route path="/varices" element={<AnimatedPage><Varices /></AnimatedPage>} />
-            <Route path="/services" element={<AnimatedPage><Services /></AnimatedPage>} />
-            <Route path="/testimonials" element={<AnimatedPage><Testimonials /></AnimatedPage>} />
-            <Route path="/contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
-          </Routes>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<AnimatedPage><Home /></AnimatedPage>} />
+              <Route path="/about" element={<AnimatedPage><About /></AnimatedPage>} />
+              <Route path="/hernias" element={<AnimatedPage><Hernias /></AnimatedPage>} />
+              <Route path="/varices" element={<AnimatedPage><Varices /></AnimatedPage>} />
+              <Route path="/services" element={<AnimatedPage><Services /></AnimatedPage>} />
+              <Route path="/testimonials" element={<AnimatedPage><Testimonials /></AnimatedPage>} />
+              <Route path="/contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
+            </Routes>
+          </Suspense>
         </main>
         <WhatsAppButton phoneNumber="529982943795" />
         <Footer />

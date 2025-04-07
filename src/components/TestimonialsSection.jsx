@@ -1,9 +1,59 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef, memo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { FaQuoteLeft, FaStar, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import '../styles/components/testimonials.css';
 
-const TestimonialsSection = ({ isPreview }) => {
+// Memoized components for better performance
+const TestimonialCard = memo(({ testimonial }) => {
+  // Renderizar estrellas según la calificación
+  const renderStars = useCallback((rating) => {
+    let stars = [];
+    for (let i = 0; i < 5; i++) {
+      stars.push(
+        <FaStar 
+          key={i} 
+          className={i < rating ? 'star-filled' : 'star-empty'} 
+        />
+      );
+    }
+    return stars;
+  }, []);
+
+  return (
+    <div className="testimonial-card" key={testimonial.id}>
+      <div className="testimonial-content">
+        <FaQuoteLeft className="quote-icon" />
+        <p className="testimonial-text">{testimonial.text}</p>
+        <div className="testimonial-rating">
+          {renderStars(testimonial.rating)}
+        </div>
+      </div>
+      <div className="testimonial-author">
+        <div className="author-image">
+          <picture>
+            <source srcSet={testimonial.image.replace('.jpg', '.webp').replace('/images/', '/images/optimized/')} type="image/webp" />
+            <source srcSet={testimonial.image.replace('/images/', '/images/optimized/')} type={testimonial.image.endsWith('.jpg') ? 'image/jpeg' : 'image/png'} />
+            <img 
+              src={testimonial.image.replace('/images/', '/images/optimized/')}
+              alt={testimonial.name}
+              loading="lazy"
+              width="50"
+              height="50"
+              decoding="async" 
+            />
+          </picture>
+        </div>
+        <div className="author-info">
+          <h4>{testimonial.name}</h4>
+          <p>{testimonial.procedure}</p>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+// Main component with optimizations
+const TestimonialsSection = memo(({ isPreview }) => {
   // Use useMemo for testimonials array to keep reference stable
   const testimonials = useMemo(() => [
     {
@@ -39,7 +89,7 @@ const TestimonialsSection = ({ isPreview }) => {
       image: '/images/male.jpg'
     },
     {
-    id: 5,
+      id: 5,
       name: 'Elena',
       procedure: 'Tratamiento de Varices',
       rating: 5,
@@ -47,7 +97,7 @@ const TestimonialsSection = ({ isPreview }) => {
       image: '/images/female.jpg'
     },
     {
-    id: 6,
+      id: 6,
       name: 'Manlio',
       procedure: 'Cirugía de Hernia',
       rating: 5,
@@ -55,7 +105,7 @@ const TestimonialsSection = ({ isPreview }) => {
       image: '/images/male.jpg'
     },
     {
-    id: 7,
+      id: 7,
       name: 'Jose',
       procedure: 'Cirugía de Hernia',
       rating: 5,
@@ -63,12 +113,12 @@ const TestimonialsSection = ({ isPreview }) => {
       image: '/images/male.jpg'
     },
     {
-    id: 8,
-    name: 'Daniela',
-    procedure: 'Cirugía de Hernia',
-    rating: 5,
-    text: 'Muy recomendable clínica, muy buen trato. Bendiciones para el doctor Boris que operó a mi esposo. Dios le de más salud y sabiduría para atender a más personas.',
-    image: '/images/female.jpg'
+      id: 8,
+      name: 'Daniela',
+      procedure: 'Cirugía de Hernia',
+      rating: 5,
+      text: 'Muy recomendable clínica, muy buen trato. Bendiciones para el doctor Boris que operó a mi esposo. Dios le de más salud y sabiduría para atender a más personas.',
+      image: '/images/female.jpg'
     }
   ], []);
 
@@ -83,46 +133,56 @@ const TestimonialsSection = ({ isPreview }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const sliderRef = useRef(null);
   
-  // Determinar cuántos testimonios mostrar por pantalla según el tamaño
-  const getTestimonialsPerView = () => {
+  // Memoized function for determining testimonials per view
+  const getTestimonialsPerView = useCallback(() => {
     if (window.innerWidth >= 992) return 2;
     return 1;
-  };
+  }, []);
   
-  // Efecto para controlar el resize de la ventana
+  // Optimized resize handler with useCallback
+  const handleResize = useCallback(() => {
+    setTestimonialsPerView(getTestimonialsPerView());
+  }, [getTestimonialsPerView]);
+  
+  // Efecto para controlar el resize de la ventana - optimized
   useEffect(() => {
-    const handleResize = () => {
-      setTestimonialsPerView(getTestimonialsPerView());
-    };
-    
     // Establecer el valor inicial
     handleResize();
     
+    // Use debounced resize handler for better performance
+    let resizeTimer;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(handleResize, 100);
+    };
+    
     // Agregar listener para el cambio de tamaño
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', debouncedResize);
     
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', debouncedResize);
+      clearTimeout(resizeTimer);
     };
-  }, []); // Sin dependencias para ejecutarse solo al montar el componente
+  }, [handleResize]); 
+  
+  // Optimized function to update visible testimonials with useCallback
+  const updateVisibleTestimonials = useCallback(() => {
+    const newVisible = [];
+    for (let i = 0; i < testimonialsPerView; i++) {
+      const index = (currentIndex + i) % displayedTestimonials.length;
+      newVisible.push(displayedTestimonials[index]);
+    }
+    setVisibleTestimonials(newVisible);
+  }, [currentIndex, testimonialsPerView, displayedTestimonials]);
   
   // Efecto para actualizar los testimonios visibles
   useEffect(() => {
-    // Función para actualizar los testimonios visibles
-    const updateVisibleTestimonials = () => {
-      const newVisible = [];
-      for (let i = 0; i < testimonialsPerView; i++) {
-        const index = (currentIndex + i) % displayedTestimonials.length;
-        newVisible.push(displayedTestimonials[index]);
-      }
-      setVisibleTestimonials(newVisible);
-    };
-    
     updateVisibleTestimonials();
-  }, [currentIndex, testimonialsPerView, displayedTestimonials]); // Dependencias explícitas
+  }, [updateVisibleTestimonials]); 
   
-  const nextTestimonial = () => {
+  // Optimized navigation functions with useCallback
+  const nextTestimonial = useCallback(() => {
     if (isAnimating) return;
     
     setIsAnimating(true);
@@ -135,13 +195,13 @@ const TestimonialsSection = ({ isPreview }) => {
       });
     }
     
-    // Wait for exit animation to complete
+    // Reduced timeout for better performance
     setTimeout(() => {
       setCurrentIndex((prevIndex) => 
         (prevIndex + 1) % displayedTestimonials.length);
       
       // Remove exit animation class and add entry animation after state update
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         if (sliderRef.current) {
           const cards = sliderRef.current.querySelectorAll('.testimonial-card');
           cards.forEach(card => {
@@ -155,13 +215,13 @@ const TestimonialsSection = ({ isPreview }) => {
               card.classList.remove('testimonial-slide-in');
             });
             setIsAnimating(false);
-          }, 500);
+          }, 300);
         }
-      }, 50);
-    }, 400);
-  };
+      });
+    }, 300);
+  }, [isAnimating, displayedTestimonials.length]);
   
-  const prevTestimonial = () => {
+  const prevTestimonial = useCallback(() => {
     if (isAnimating) return;
     
     setIsAnimating(true);
@@ -174,13 +234,13 @@ const TestimonialsSection = ({ isPreview }) => {
       });
     }
     
-    // Wait for exit animation to complete
+    // Reduced timeout for better performance
     setTimeout(() => {
       setCurrentIndex((prevIndex) => 
         (prevIndex - 1 + displayedTestimonials.length) % displayedTestimonials.length);
       
       // Remove exit animation class and add entry animation after state update
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         if (sliderRef.current) {
           const cards = sliderRef.current.querySelectorAll('.testimonial-card');
           cards.forEach(card => {
@@ -194,29 +254,29 @@ const TestimonialsSection = ({ isPreview }) => {
               card.classList.remove('testimonial-slide-in');
             });
             setIsAnimating(false);
-          }, 500);
+          }, 300);
         }
-      }, 50);
-    }, 400);
-  };
+      });
+    }, 300);
+  }, [isAnimating, displayedTestimonials.length]);
   
-  // Touch swipe functionality for mobile
+  // Touch swipe functionality for mobile - optimized
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   
   // Required minimum distance between touch start and touch end to be detected as swipe
   const minSwipeDistance = 50;
   
-  const onTouchStart = (e) => {
+  const onTouchStart = useCallback((e) => {
     setTouchEnd(null); // Reset values
     setTouchStart(e.targetTouches[0].clientX);
-  };
+  }, []);
   
-  const onTouchMove = (e) => {
+  const onTouchMove = useCallback((e) => {
     setTouchEnd(e.targetTouches[0].clientX);
-  };
+  }, []);
   
-  const onTouchEnd = () => {
+  const onTouchEnd = useCallback(() => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
@@ -227,21 +287,7 @@ const TestimonialsSection = ({ isPreview }) => {
     } else if (isRightSwipe) {
       prevTestimonial();
     }
-  };
-  
-  // Renderizar estrellas según la calificación
-  const renderStars = (rating) => {
-    let stars = [];
-    for (let i = 0; i < 5; i++) {
-      stars.push(
-        <FaStar 
-          key={i} 
-          className={i < rating ? 'star-filled' : 'star-empty'} 
-        />
-      );
-    }
-    return stars;
-  };
+  }, [touchStart, touchEnd, nextTestimonial, prevTestimonial]);
 
   return (
     <section className={`testimonials-section ${isPreview ? 'preview' : ''}`}>
@@ -269,24 +315,10 @@ const TestimonialsSection = ({ isPreview }) => {
             onTouchEnd={onTouchEnd}
           >
             {visibleTestimonials.map((testimonial) => (
-              <div className="testimonial-card" key={testimonial.id}>
-                <div className="testimonial-content">
-                  <FaQuoteLeft className="quote-icon" />
-                  <p className="testimonial-text">{testimonial.text}</p>
-                  <div className="testimonial-rating">
-                    {renderStars(testimonial.rating)}
-                  </div>
-                </div>
-                <div className="testimonial-author">
-                  <div className="author-image">
-                    <img src={testimonial.image} alt={testimonial.name} />
-                  </div>
-                  <div className="author-info">
-                    <h4>{testimonial.name}</h4>
-                    <p>{testimonial.procedure}</p>
-                  </div>
-                </div>
-              </div>
+              <TestimonialCard 
+                key={testimonial.id} 
+                testimonial={testimonial} 
+              />
             ))}
           </div>
           
@@ -325,6 +357,6 @@ const TestimonialsSection = ({ isPreview }) => {
       </div>
     </section>
   );
-};
+});
 
 export default TestimonialsSection;

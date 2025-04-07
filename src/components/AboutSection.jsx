@@ -13,11 +13,19 @@ const AboutSection = ({ isPreview }) => {
 
         <div className="about-content">
           <div className="about-image-container">
-            <img 
-              src="/images/Boris2.jpg" 
-              alt="Dr. Boris Mederos - Cirujano General" 
-              className="about-image"
-            />
+            <picture>
+              <source srcSet="/images/optimized/Boris2.webp" type="image/webp" />
+              <source srcSet="/images/optimized/Boris2.jpg" type="image/jpeg" />
+              <img 
+                src="/images/optimized/Boris2.jpg" 
+                alt="Dr. Boris Mederos - Cirujano General" 
+                className="about-image"
+                loading="lazy"
+                width="400"
+                height="500"
+                decoding="async"
+              />
+            </picture>
             <div className="about-image-badge">
               <span>+25</span>
               <small>Años de Experiencia</small>

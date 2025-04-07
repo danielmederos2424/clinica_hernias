@@ -20,11 +20,19 @@ const VaricesSection = ({ isPreview }) => {
 
         <div className="specialty-content reverse">
           <div className="specialty-image-container">
-            <img 
-              src="/images/varices2.jpeg" 
-              alt="Tratamiento de Varices" 
-              className="specialty-detailed-image"
-            />
+            <picture>
+              <source srcSet="/images/optimized/varices2.webp" type="image/webp" />
+              <source srcSet="/images/optimized/varices2.jpeg" type="image/jpeg" />
+              <img 
+                src="/images/optimized/varices2.jpeg" 
+                alt="Tratamiento de Varices" 
+                className="specialty-detailed-image"
+                loading="lazy"
+                width="500"
+                height="350"
+                decoding="async"
+              />
+            </picture>
             <div className="image-overlay">
               <div className="overlay-content">
                 <h3>Beneficios de nuestros tratamientos</h3>

@@ -1,13 +1,8 @@
-/* index.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* index.css - optimized for performance */
+/* Font is now loaded in the HTML for better performance */
 @import './variables.css';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Basic reset already included in inline critical CSS */
 html {
   scroll-behavior: smooth;
 }
@@ -20,6 +15,35 @@ body {
   overflow-x: hidden;
 }
 
+/* Page Loader for Suspense fallback */
+.page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+}
+
+.loader-content {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow-sm);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.loader-content p {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--heading-font-weight);
   line-height: 1.2;
@@ -27,21 +51,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--secondary-color);
 }
 
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.75rem;
-}
-
-p {
-  margin-bottom: var(--spacing-md);
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+p { margin-bottom: var(--spacing-md); }
 
 a {
   color: var(--primary-color);
@@ -57,6 +70,8 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  /* Performance optimizations for images */
+  content-visibility: auto;
 }
 
 .container {
@@ -66,9 +81,7 @@ img {
   padding: 0 var(--spacing-md);
 }
 
-.section {
-  padding: var(--spacing-xl) 0;
-}
+.section { padding: var(--spacing-xl) 0; }
 
 .section-title {
   text-align: center;
@@ -111,6 +124,7 @@ img {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   text-align: center;
+  will-change: transform;
 }
 
 .btn:hover {
@@ -129,6 +143,7 @@ img {
   transition: all 0.3s ease;
   display: inline-block;
   text-align: center;
+  will-change: transform;
 }
 
 .btn-outline:hover {
@@ -144,6 +159,7 @@ img {
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, box-shadow;
 }
 
 .card:hover {
@@ -156,9 +172,7 @@ img {
 }
 
 /* Utility classes */
-.text-center {
-  text-align: center;
-}
+.text-center { text-align: center; }
 
 /* Accessibility utility */
 .visually-hidden {
@@ -173,6 +187,7 @@ img {
   border: 0;
 }
 
+/* Simplified margin utilities */
 .mt-0 { margin-top: 0; }
 .mt-1 { margin-top: var(--spacing-xs); }
 .mt-2 { margin-top: var(--spacing-sm); }
@@ -189,21 +204,10 @@ img {
 
 /* Responsive */
 @media (max-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-  
-  h1 {
-    font-size: 2.25rem;
-  }
-  
-  h2 {
-    font-size: 1.75rem;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-  }
+  .container { max-width: 960px; }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -211,45 +215,18 @@ img {
     padding: 0 var(--spacing-sm);
     max-width: 720px;
   }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 1.25rem;
-  }
-  
-  .section {
-    padding: var(--spacing-lg) 0;
-  }
-  
-  .section-title {
-    margin-bottom: var(--spacing-lg);
-  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  .section { padding: var(--spacing-lg) 0; }
+  .section-title { margin-bottom: var(--spacing-lg); }
 }
 
 @media (max-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-  
-  h1 {
-    font-size: 1.75rem;
-  }
-  
-  h2 {
-    font-size: 1.35rem;
-  }
-  
-  h3 {
-    font-size: 1.15rem;
-  }
-  
+  .container { max-width: 540px; }
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.35rem; }
+  h3 { font-size: 1.15rem; }
   .btn, .btn-outline {
     padding: 0.6rem 1.2rem;
     font-size: 0.95rem;
