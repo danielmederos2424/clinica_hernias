@@ -48,7 +48,7 @@ const AnimatedPage = ({ children }) => {
     // Prefetch other pages after current page loads
     const prefetchPages = () => {
       // Only prefetch pages on production
-      if (process.env.NODE_ENV === 'production') {
+      if (import.meta.env.PROD) {
         // Start prefetching other routes after a delay
         const timer = setTimeout(() => {
           import('./pages/About');
@@ -70,7 +70,7 @@ const AnimatedPage = ({ children }) => {
 const SEOWrapper = () => {
   const location = useLocation();
   const path = location.pathname;
-  const baseUrl = 'https://www.clinicahernias.com';
+  const baseUrl = 'https://clinicahernias.com'; // Removed www
   
   // Define SEO configurations for each route - memoized object
   const seoConfig = {

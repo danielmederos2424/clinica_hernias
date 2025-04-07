@@ -1,45 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://www.clinicahernias.com/</loc>
+    <loc>https://clinicahernias.com/</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://clinicahernias.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clinicahernias.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clinicahernias.com/"/>
   </url>
   <url>
-    <loc>https://www.clinicahernias.com/about</loc>
+    <loc>https://clinicahernias.com/about</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://clinicahernias.com/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clinicahernias.com/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clinicahernias.com/about"/>
   </url>
   <url>
-    <loc>https://www.clinicahernias.com/hernias</loc>
+    <loc>https://clinicahernias.com/hernias</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://clinicahernias.com/hernias"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clinicahernias.com/hernias"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clinicahernias.com/hernias"/>
   </url>
   <url>
-    <loc>https://www.clinicahernias.com/varices</loc>
+    <loc>https://clinicahernias.com/varices</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://clinicahernias.com/varices"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clinicahernias.com/varices"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clinicahernias.com/varices"/>
   </url>
   <url>
-    <loc>https://www.clinicahernias.com/services</loc>
+    <loc>https://clinicahernias.com/services</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://clinicahernias.com/services"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clinicahernias.com/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clinicahernias.com/services"/>
   </url>
   <url>
-    <loc>https://www.clinicahernias.com/testimonials</loc>
+    <loc>https://clinicahernias.com/testimonials</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://clinicahernias.com/testimonials"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clinicahernias.com/testimonials"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clinicahernias.com/testimonials"/>
   </url>
   <url>
-    <loc>https://www.clinicahernias.com/contact</loc>
+    <loc>https://clinicahernias.com/contact</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://clinicahernias.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clinicahernias.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clinicahernias.com/contact"/>
   </url>
 </urlset>

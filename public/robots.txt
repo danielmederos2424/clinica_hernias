@@ -4,11 +4,10 @@
 User-agent: *
 Allow: /
 
-# Performance optimized assets - no need for crawling
+# Disallow crawling of unnecessary file types but allow CSS/JS for rendering
 User-agent: *
-Disallow: /assets/
-Disallow: /*.js$
-Disallow: /*.css$
+Disallow: /*.json$
+Disallow: /*.map$
 
 # Sitemap location
-Sitemap: https://www.clinicahernias.com/sitemap.xml
+Sitemap: https://clinicahernias.com/sitemap.xml

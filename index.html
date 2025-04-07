@@ -35,6 +35,16 @@
       .hero { background-color: #0c3483; color: white; position: relative; }
       .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
         background: linear-gradient(135deg, rgba(12, 52, 131, 0.9) 0%, rgba(25, 100, 200, 0.7) 100%); z-index: 1; }
+      
+      /* Add critical mobile styles */
+      @media (max-width: 768px) {
+        section { padding: 2rem 1rem !important; }
+        .container { padding: 0 1rem !important; }
+        .hero-title { font-size: 2rem; }
+        .nav-menu { display: none; } /* Hide menu initially on mobile */
+        .menu-icon { display: block; cursor: pointer; } /* Show menu icon */
+      }
+      
       @font-face {
         font-family: 'Poppins';
         font-style: normal;
@@ -64,13 +74,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="canonical" href="https://www.clinicahernias.com/[path]">
+    
+    <!-- Canonical URL - Fixed to use non-www version -->
+    <link rel="canonical" href="https://clinicahernias.com">
+    
+    <!-- hreflang tags for language/regional targeting -->
+    <link rel="alternate" hreflang="es-MX" href="https://clinicahernias.com/" />
+    <link rel="alternate" hreflang="es" href="https://clinicahernias.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://clinicahernias.com/" />
     
     <!-- Metadatos Open Graph -->
     <meta property="og:title" content="Dr. Boris Mederos | Cirujano General en Cancún" />
     <meta property="og:description" content="Especialista en Cirugía de Hernias y Tratamiento de Varices" />
-    <meta property="og:image" content="/og-image.jpg" />
-    <meta property="og:url" content="https://www.clinicahernias.com" />
+    <meta property="og:image" content="https://clinicahernias.com/og-image.jpg" />
+    <meta property="og:url" content="https://clinicahernias.com" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Dr. Boris Mederos - Cirujano General" />
     <meta property="og:locale" content="es_MX" />
@@ -79,7 +96,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dr. Boris Mederos | Cirujano General en Cancún" />
     <meta name="twitter:description" content="Especialista en Cirugía de Hernias y Tratamiento de Varices" />
-    <meta name="twitter:image" content="/og-image.jpg" />
+    <meta name="twitter:image" content="https://clinicahernias.com/og-image.jpg" />
     
     <!-- Page title, will be overridden by React Helmet for each route -->
     <title>Dr. Boris Mederos | Cirujano General en Cancún</title>
