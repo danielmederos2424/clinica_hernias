@@ -43,8 +43,10 @@ const useSEO = ({
     updateMetaTag('twitter:description', twitterDescription || ogDescription || description);
     updateMetaTag('twitter:image', twitterImage || ogImage);
     
-    // Update canonical link
-    updateCanonicalLink(canonical);
+    // Update canonical link with higher priority
+    if (canonical) {
+      updateCanonicalLink(canonical);
+    }
     
     // Add schema.org JSON-LD
     updateSchema(schema);
@@ -102,20 +104,21 @@ const findMetaTag = (name) => {
   return document.querySelector(`meta[name="${name}"]`);
 };
 
-// Helper function to update canonical link
+// Helper function to update canonical link - Modified for higher priority
 const updateCanonicalLink = (href) => {
   if (!href) return;
   
-  let link = document.querySelector('link[rel="canonical"]');
+  // Remove any existing canonical links to ensure only one exists
+  const existingLinks = document.querySelectorAll('link[rel="canonical"]');
+  existingLinks.forEach(link => link.remove());
   
-  if (link) {
-    link.setAttribute('href', href);
-  } else {
-    link = document.createElement('link');
-    link.setAttribute('rel', 'canonical');
-    link.setAttribute('href', href);
-    document.head.appendChild(link);
-  }
+  // Create and add the new canonical link
+  const link = document.createElement('link');
+  link.setAttribute('rel', 'canonical');
+  link.setAttribute('href', href);
+  document.head.appendChild(link);
+  
+  console.log('Updated canonical link to:', href);
 };
 
 // Helper function to update schema.org JSON-LD

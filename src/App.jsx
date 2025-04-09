@@ -70,7 +70,7 @@ const AnimatedPage = ({ children }) => {
 const SEOWrapper = () => {
   const location = useLocation();
   const path = location.pathname;
-  const baseUrl = 'https://clinicahernias.com'; // Removed www
+  const baseUrl = 'https://clinicahernias.com';
   
   // Define SEO configurations for each route - memoized object
   const seoConfig = {

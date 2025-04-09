@@ -1,12 +1,19 @@
 // Contact.jsx
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaWhatsapp } from 'react-icons/fa';
 import ContactSection from '../components/ContactSection';
+import SEO from '../components/SEO';
 import '../styles/pages/inner-pages.css';
 import { Link } from 'react-router-dom';
 
 const Contact = () => {
   return (
     <div className="inner-page contact-page">
+      <SEO 
+        title="Contacto | Dr. Boris Mederos en Cancún"
+        description="Contacte al Dr. Boris Mederos para consultas, citas o información sobre tratamientos de hernias y várices en Cancún, Quintana Roo."
+        canonical="https://clinicahernias.com/contact"
+      />
+      
       <div className="page-header">
         <div className="container">
           <h1>Contacto</h1>
