@@ -1,92 +1,44 @@
 import { Link } from 'react-router-dom';
-import { FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF } from 'react-icons/fa';
-import '../styles/components/footer.css';
+import { contact, wa } from '../content';
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-brand">
-            <Link to="/" className="footer-logo">
-              <span className="logo-text">Dr. Boris Mederos</span>
-              <span className="logo-subtitle">Cirujano General</span>
-            </Link>
-            <p className="footer-description">
-              Especialista en cirugía de hernias y tratamiento de varices, 
-              comprometido con brindar atención médica de calidad con un enfoque humano.
-            </p>
-            <div className="footer-contact">
-              <a 
-                href="https://wa.me/529982943795" 
-                className="footer-contact-item"
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <FaWhatsapp className="footer-icon" />
-                WhatsApp
-              </a>
-              <a href="tel:+529982943795" className="footer-contact-item">
-                <FaPhone className="footer-icon" />
-                +52 998 294 3795
-              </a>
-              <a 
-                href="https://www.facebook.com/profile.php?id=100091780065318" 
-                className="footer-contact-item"
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <FaFacebookF className="footer-icon" />
-                Facebook
-              </a>
-            </div>
-          </div>
-          
-          <div className="footer-links">
-            <h3>Enlaces Rápidos</h3>
-            <ul>
-              <li><Link to="/">Inicio</Link></li>
-              <li><Link to="/about">Sobre Mí</Link></li>
-              <li><Link to="/hernias">Cirugía de Hernias</Link></li>
-              <li><Link to="/varices">Tratamiento de Varices</Link></li>
-              <li><Link to="/services">Otros Servicios</Link></li>
-              <li><Link to="/testimonials">Testimonios</Link></li>
-              <li><Link to="/contact">Contacto</Link></li>
-            </ul>
-          </div>
-          
-          <div className="footer-info">
-            <h3>Información</h3>
-            <div className="info-item">
-              <FaMapMarkerAlt className="info-icon" />
-              <p>Av. Luna 5, Mz. 15 Lt 1 Sm. 43<br />Cancún. México CP. 77506</p>
-            </div>
-            <div className="info-item">
-              <FaEnvelope className="info-icon" />
-              <p>borismederos@gmail.com</p>
-            </div>
-            <div className="appointment-hours">
-              <h4>Horario de Consulta</h4>
-              <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
-              <p>Sábados: 9:00 AM - 1:00 PM</p>
-            </div>
-          </div>
+const Footer = () => (
+  <footer className="footer">
+    <div className="container">
+      <p className="footer-note">
+        La información de este sitio es orientativa y no sustituye una consulta médica.
+        Cada diagnóstico y tratamiento se define de forma individual.
+      </p>
+      <div className="footer-cols">
+        <div>
+          <h2>Especialidades</h2>
+          <ul>
+            <li><Link to="/hernias">Cirugía de hernias</Link></li>
+            <li><Link to="/varices">Tratamiento de varices</Link></li>
+          </ul>
         </div>
-        
-        <div className="footer-bottom">
-          <p className="copyright">
-            &copy; {currentYear} Dr. Boris Mederos. Todos los derechos reservados.
-          </p>
-          <div className="legal-links">
-            <span className="spam">sitio web desarrollado por </span>
-            <a href="https://www.webgraphix.online" target="_blank" rel="noopener noreferrer">WebGraphix</a>
-          </div>
+        <div>
+          <h2>Consultorio</h2>
+          <ul>
+            <li><Link to="/about">El doctor</Link></li>
+            <li><Link to="/contact">Contacto y ubicación</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contacto</h2>
+          <ul>
+            <li><a href={wa()} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href={`tel:${contact.tel}`}>{contact.phone}</a></li>
+            <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+            <li><a href={contact.facebook} target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
-  );
-};
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} Dr. Boris Mederos · {contact.place}, {contact.address[1]}</p>
+        <p>Sitio por <a href="https://www.webgraphix.online" target="_blank" rel="noopener noreferrer">WebGraphix</a></p>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

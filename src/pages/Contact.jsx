@@ -1,53 +1,58 @@
-// Contact.jsx
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaWhatsapp } from 'react-icons/fa';
-import ContactSection from '../components/ContactSection';
-import SEO from '../components/SEO';
-import '../styles/pages/inner-pages.css';
-import { Link } from 'react-router-dom';
+import { IoLogoWhatsapp, IoCallOutline, IoMailOutline, IoLocationOutline, IoTimeOutline } from 'react-icons/io5';
+import { contact, wa } from '../content';
 
-const Contact = () => {
-  return (
-    <div className="inner-page contact-page">
-      <SEO 
-        title="Contacto | Dr. Boris Mederos en Cancún"
-        description="Contacte al Dr. Boris Mederos para consultas, citas o información sobre tratamientos de hernias y várices en Cancún, Quintana Roo."
-        canonical="https://clinicahernias.com/contact"
-      />
-      
-      <div className="page-header">
-        <div className="container">
-          <h1>Contacto</h1>
-          <div className="breadcrumbs">
-            <Link to="/">Inicio</Link> / <span>Contacto</span>
-          </div>
+const Contact = () => (
+  <>
+    <section className="page-hero">
+      <div className="container">
+        <h1 className="display">Contacto.</h1>
+        <p className="lead">Escríbenos por WhatsApp para agendar o resolver dudas. Te respondemos a la brevedad.</p>
+      </div>
+    </section>
+
+    <section className="section tight-top">
+      <div className="container contact-grid">
+        <ul className="contact-list">
+          <li>
+            <IoLogoWhatsapp aria-hidden="true" />
+            <div><h2>WhatsApp</h2><a href={wa()} target="_blank" rel="noopener noreferrer">Enviar mensaje</a></div>
+          </li>
+          <li>
+            <IoCallOutline aria-hidden="true" />
+            <div><h2>Teléfono</h2><a href={`tel:${contact.tel}`}>{contact.phone}</a></div>
+          </li>
+          <li>
+            <IoMailOutline aria-hidden="true" />
+            <div><h2>Correo</h2><a href={`mailto:${contact.email}`}>{contact.email}</a></div>
+          </li>
+          <li>
+            <IoLocationOutline aria-hidden="true" />
+            <div>
+              <h2>Dirección</h2>
+              <p>{contact.place}<br />{contact.address.join(', ')}</p>
+              <a href={contact.maps} target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+            </div>
+          </li>
+          <li>
+            <IoTimeOutline aria-hidden="true" />
+            <div>
+              <h2>Horario</h2>
+              {contact.hours.map(([d, h]) => <p key={d}>{d}: {h}</p>)}
+            </div>
+          </li>
+        </ul>
+        <div className="map">
+          <iframe
+            src={contact.mapsEmbed}
+            title={`Mapa: ${contact.place}`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
         </div>
       </div>
-      
-      <ContactSection />
-      
-      <section className="cta-section">
-        <div className="container">
-          <div className="cta-content">
-            <h2>¿Necesitas una consulta?</h2>
-            <p>No dudes en contactarme para agendar una cita o resolver cualquier duda sobre tus síntomas o tratamientos.</p>
-            <div className="cta-buttons">
-              <a 
-                href="https://wa.me/529982943795?text=Hola%20Doctor,%20me%20gustaría%20agendar%20una%20cita." 
-                className="btn"
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <FaWhatsapp className="btn-icon" /> Agendar por WhatsApp
-              </a>
-              <a href="tel:+5512345678" className="btn-outline">
-                <FaPhone className="btn-icon" /> Llamar ahora
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
+    </section>
+  </>
+);
 
 export default Contact;

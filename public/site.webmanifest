@@ -19,8 +19,8 @@
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#2c7abc",
-  "background_color": "#f5f9fc",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",
   "categories": ["health", "medical", "healthcare"],
